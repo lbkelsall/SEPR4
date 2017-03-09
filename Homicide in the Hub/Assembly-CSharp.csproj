@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\CharacterSelector.cs" />
      <Compile Include="Assets\Scripts\GameMaster.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\InputManager1.cs" />
      <Compile Include="Assets\Scripts\InterrogationScript.cs" />
      <Compile Include="Assets\Scripts\ItemScript.cs" />

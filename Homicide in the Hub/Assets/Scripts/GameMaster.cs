@@ -212,7 +212,6 @@ public class GameMaster : MonoBehaviour {
 		    else if (character == "Mime")
 		    {
 		        mimeResponses = SpeechHandler.AccessData(speechData, character).ToList().ToList();
-				Debug.Log("HERE!!!!!!!!!!!!!!!" + mimeResponses[0]);
 		    }
 		    else if (character == "Millionaire")
 		    {

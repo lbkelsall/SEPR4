@@ -31,4 +31,8 @@ public class Inventory{
 		return inventory;
 	}
 
+	public void setInventory(List<Item> newItems) {
+		inventory = newItems;
+	}
+
 }

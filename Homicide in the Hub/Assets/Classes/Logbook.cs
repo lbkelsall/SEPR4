@@ -26,6 +26,10 @@ public class Logbook {
 		return logbook;
 	}
 
+	public void SetLogbook(List<VerbalClue> newLogbook){
+		logbook = newLogbook;
+	}
+
 	public int GetListLength(){
 		return logbook.Count;
 	}
