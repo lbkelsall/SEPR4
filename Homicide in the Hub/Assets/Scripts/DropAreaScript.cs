@@ -7,7 +7,11 @@ public class DropAreaScript : MonoBehaviour, IDropHandler {
 
 	public void OnDrop(PointerEventData eventData){
 
-		eventData.pointerDrag.transform.parent = gameObject.transform;
 
+		LetterScript ls = eventData.pointerDrag.GetComponent <LetterScript> ();
+		if (ls != null) {
+			ls.SetPosition (eventData.position, this.gameObject);
+		}
+	
 	}
 }
