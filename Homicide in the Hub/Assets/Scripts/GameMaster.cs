@@ -160,6 +160,19 @@ public class GameMaster : MonoBehaviour {
 	private List<string> reginaldResponses;
 	private List<string> scientistResponses;
 
+	//Saving and Loading
+	GameState[] gameStates;
+
+	private int numOfPlayers;
+
+
+	public void SetNumberOfPlayers(int numOfPlayers){
+		this.numOfPlayers = numOfPlayers;
+	}
+	//private TurnManager turnManager = new TurnManager(gameStates,3,30.0f);
+
+
+
 
 	private NonPlayerCharacter murderer;
 
@@ -245,6 +258,11 @@ public class GameMaster : MonoBehaviour {
 		    {
 		        scientistResponses = SpeechHandler.AccessData(speechData, character).ToList();
 		    }
+
+
+			//Saving and loading
+
+
 		}
 
 		//Weaknesses

@@ -77,11 +77,13 @@
      <Compile Include="Assets\Scripts\Leaderboard.cs" />
      <Compile Include="Assets\Scripts\LetterScript.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\MultiplayerManager.cs" />
      <Compile Include="Assets\Scripts\NotebookManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\QuestioningScript.cs" />
      <Compile Include="Assets\Scripts\Riddler.cs" />
      <Compile Include="Assets\Scripts\TraverseRooms.cs" />
+     <Compile Include="Assets\Scripts\TurnManager.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

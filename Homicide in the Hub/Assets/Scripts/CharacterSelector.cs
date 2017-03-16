@@ -86,4 +86,8 @@ public class CharacterSelector : MonoBehaviour {
 		SceneManager.LoadScene ("Atrium");
 	}
 
+	public PlayerCharacter GetDetective() {
+		return detectives [detectiveCounter];
+	}
+
 }

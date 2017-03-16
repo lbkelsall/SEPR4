@@ -30,4 +30,8 @@ public class ButtonScript : MonoBehaviour {
 		string previousScene = InterrogationScript.instance.GetReturnScene ();
 		SceneManager.LoadScene (previousScene);
 	}
+		
+	public void PassNumOfPlayers(){
+
+	}
 }
