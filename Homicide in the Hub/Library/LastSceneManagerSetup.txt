@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Character Selection.unity
+- path: Assets/Scenes/Fridge.unity
   isLoaded: 1
   isActive: 1

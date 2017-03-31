@@ -319,4 +319,16 @@ public class Scenario
 		}
 		return relevant_clues;
 	}
+
+	private string[][] riddles = new string[][]{
+		new string [2] {"Say my name and I disappear, what am I?","Silence"},
+		new string [2] {"What is easy to get into, but hard to get out of?","Trouble"},
+		new string [2] {"Feed me and I live, yet give me a drink and I die","Fire"},
+		new string [2] {"What type of dress can never be worn?","Address"},
+		new string [2] {"A twiggy home","Nest"}
+	};
+	
+	public string[] SelectRiddle(){
+		return riddles[Random.Range (0,riddles.Length)];
+	}
 }

@@ -5,16 +5,24 @@ using UnityEngine.UI;
 
 public class Riddler : MonoBehaviour {
 
-	private string riddle = "Say my name and I disapeear. What am I?";
-	private string correctAnswer = "Silence";
+	private string riddle;
+	private string correctAnswer;
 
 	public Text questionText;
 	public GameObject letterPrefab;
 	public GameObject centreSpawnPoint;
 	public float spawnPointPadding;
 	public GameObject dropArea;
+	private bool riddleSolved = false;
+
+	public GameObject secretEntrance; 
+	public GameObject emptyFridge;
+	public GameObject riddleGUI;
+	public GameObject backButton;
 
 	void Start () {
+		riddle = GameMaster.instance.GetRiddle () [0];
+		correctAnswer = GameMaster.instance.GetRiddle () [1];
 		questionText.text = riddle;
 		CreateAnswerMagnets (correctAnswer);
 	}
@@ -65,10 +73,13 @@ public class Riddler : MonoBehaviour {
 
 			//Correct Answer
 			if (strAnswerEntered == correctAnswer) {
+				GameMaster.instance.SetRiddleStatus (true);
+				ShowHiddenEntrance ();
 				Debug.Log ("Correct Answer!");
 			
 			//Incorrect Answer
 			} else {
+				riddleSolved = false;
 				Debug.Log ("InCorrect Answer!");
 			}
 
@@ -76,5 +87,17 @@ public class Riddler : MonoBehaviour {
 		} else {
 			Debug.Log ("No letters added!");
 		}
+	}
+
+	private void ShowHiddenEntrance(){
+		secretEntrance.SetActive (true);
+		riddleGUI.SetActive (false);
+		backButton.SetActive (true);
+	}
+
+	private void ShowEmptyFridge(){
+		emptyFridge.SetActive (true);
+		riddleGUI.SetActive (false);
+		backButton.SetActive (true);
 	}
 }

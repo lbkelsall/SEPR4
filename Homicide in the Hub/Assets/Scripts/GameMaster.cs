@@ -160,6 +160,10 @@ public class GameMaster : MonoBehaviour {
 	private List<string> reginaldResponses;
 	private List<string> scientistResponses;
 
+	//Riddle
+	private bool riddleSolved = false;
+	private string[] riddle;
+
 	//Saving and Loading
 	GameState[] gameStates;
 
@@ -220,7 +224,6 @@ public class GameMaster : MonoBehaviour {
 		    if (character == "Pirate")
 		    {
 		        pirateResponses = SpeechHandler.AccessData(speechData, character).ToList().ToList();
-		        Debug.Log(pirateResponses[0]);
 		    }
 		    else if (character == "Mime")
 		    {
@@ -423,6 +426,8 @@ public class GameMaster : MonoBehaviour {
 		relevant_items = scenario.getRelevantItems();
 		relevant_verbal_clues = scenario.getRelevantVerbalClues();
 		relevantClues = scenario.getRelevantClues(); 
+		riddle = scenario.SelectRiddle ();
+
 		//Assign To rooms
 		AssignNPCsToScenes(characters, scenes);					//Assigns NPCS to scenes
 		AssignItemsToScenes(itemClues, scenes);					//Assigns Items to scenes
@@ -511,5 +516,15 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
-		
+	public void SetRiddleStatus(bool status){
+		riddleSolved = status;
+	}
+
+	public bool	GetRiddleStatus(){
+		return riddleSolved;
+	}
+
+	public string[] GetRiddle(){
+		return riddle;
+	}
 }

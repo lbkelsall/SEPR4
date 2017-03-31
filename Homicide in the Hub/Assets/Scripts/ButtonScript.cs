@@ -31,7 +31,12 @@ public class ButtonScript : MonoBehaviour {
 		SceneManager.LoadScene (previousScene);
 	}
 		
-	public void PassNumOfPlayers(){
-
+	public void ClickedOnFridge(){
+		if (GameMaster.instance.GetRiddleStatus () == true) {
+			print ("Load factory, currently not set");
+			SceneManager.LoadScene ("Factory");
+		} else {
+			SceneManager.LoadScene ("Fridge");
+		}
 	}
 }
