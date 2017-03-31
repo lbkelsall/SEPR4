@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour {
+public class GameState {
 
 	private PlayerCharacter detective;
 	private Scene currentScene;

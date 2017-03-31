@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 785332790}
   - component: {fileID: 785332789}
   m_Layer: 0
-  m_Name: Local Scripts
+  m_Name: Multiplayer Manager Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

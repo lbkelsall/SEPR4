@@ -3,9 +3,9 @@ using System.Collections;
 
 public class TurnManager{
 		
-	private int playerTurn;
+	private int playerTurn = 1;
 
-	private int numOfPlayers;
+	private int numOfPlayers = 1;
 
 	private int actionsCap;
 
@@ -17,10 +17,11 @@ public class TurnManager{
 
 	private GameState[] states;
 
-	public TurnManager(GameState[] states, int maxActions, float maxTime){
+	public TurnManager(int maxActions, float maxTime, int numOfPlayers){
 		this.states = states; 
 		this.actionsCap = maxActions;
 		this.timeCap = maxTime;
+		this.numOfPlayers = numOfPlayers;
 	}
 
 	private void CyclePlayers(){
@@ -36,14 +37,27 @@ public class TurnManager{
 		actionCounter = 0;
 	}
 
-	private void IncrementActionCounter(){
+	public void IncrementActionCounter(){
 		actionCounter++;
 	}
 
-	public void EndTurn(){
+	public void EndTurnCheck(){
 		if ((actionCounter >= actionsCap) || (timer >= timeCap)) {
 			CyclePlayers ();
+			Debug.Log ("Cycle Players");
 		}
+	}
+
+	public int GetPlayerTurn(){
+		return playerTurn;
+	}
+
+	public void SetPlayerTurn(int turn){
+		this.playerTurn = turn;
+	}
+
+	public void SetStates(GameState[] states){
+		this.states = states;
 	}
 }
 

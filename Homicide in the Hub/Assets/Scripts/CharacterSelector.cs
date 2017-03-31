@@ -37,10 +37,21 @@ public class CharacterSelector : MonoBehaviour {
 	public Text GUIQuestioningStyle;
 	public Text GUIDescription;
 	private int detectiveCounter = 0;
+	public Text playerNumberReference;
 
 
 	// Use this for initialization
 	void Start () {
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			MultiplayerManager multiplayerManager = GameObject.Find ("Multiplayer Manager Object").GetComponent<MultiplayerManager> ();
+			TurnManager turnManager = multiplayerManager.GetTurnManager ();
+			playerNumberReference.text = "Player " + turnManager.GetPlayerTurn () + " Selection"; 
+		} else {
+			playerNumberReference.text = "Select your Detective";
+		}
+
+
+
 		//Initalise detectives
 		GameObject GlobalScripts = (GameObject)Instantiate(Resources.Load("GlobalScripts")); //ADDITION BY WEDUNNIT - - new scenario
 		GlobalScripts.name = "GlobalScripts"; //ADDITION BY WEDUNNIT - - removes (clone) from name
@@ -82,12 +93,38 @@ public class CharacterSelector : MonoBehaviour {
 
 	//Called when the play button is pressed
 	public void SelectDetective(){
-		GameMaster.instance.CreateNewGame (detectives [detectiveCounter]);
-		SceneManager.LoadScene ("Atrium");
+
+		//Singleplayer
+		if (GameObject.Find ("Multiplayer Manager Object") == null) {
+			GameMaster.instance.CreateNewGame (detectives [detectiveCounter]);
+			SceneManager.LoadScene ("Atrium");
+		
+		//Multiplayer
+		} else {
+			MultiplayerManager multiplayerManager = GameObject.Find ("Multiplayer Manager Object").GetComponent<MultiplayerManager> ();
+			TurnManager turnManager = multiplayerManager.GetTurnManager ();
+
+			//If all detectives selected.
+			if (turnManager.GetPlayerTurn () >= multiplayerManager.GetNumOfPlayers ()) {
+				GameMaster.instance.CreateNewGame (multiplayerManager.GetDetectives ()[0]);
+				multiplayerManager.SetStates ();
+				turnManager.SetPlayerTurn (1);
+				SceneManager.LoadScene ("Atrium");
+			
+			//If not all detectives entered
+			} else {
+				multiplayerManager.AddDetective (detectives [detectiveCounter]);
+				turnManager.SetPlayerTurn (turnManager.GetPlayerTurn () + 1);
+				SceneManager.LoadScene ("Character Selection");
+			}
+		}
+
 	}
 
 	public PlayerCharacter GetDetective() {
 		return detectives [detectiveCounter];
 	}
+
+
 
 }

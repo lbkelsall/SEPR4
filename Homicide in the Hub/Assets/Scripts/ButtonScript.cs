@@ -16,6 +16,10 @@ public class ButtonScript : MonoBehaviour {
 			Destroy(GameObject.Find("NotebookCanvas")); //ADDITION BY WEDUNNIT
 		}												//ADDITION BY WEDUNNIT
 
+		if (scene == "Main Menu" && (GameObject.Find ("Multiplayer Manager Object") != null)) {
+			Destroy(GameObject.Find("Multiplayer Manager Object")); 
+		}
+
 		SceneManager.LoadScene(scene);
 	}
 

@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Riddler.cs" />
      <Compile Include="Assets\Scripts\TraverseRooms.cs" />
      <Compile Include="Assets\Scripts\TurnManager.cs" />
+     <Compile Include="Assets\Scripts\TurnTesting.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

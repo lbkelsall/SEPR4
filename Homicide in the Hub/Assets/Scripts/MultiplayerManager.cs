@@ -8,8 +8,9 @@ public class MultiplayerManager : MonoBehaviour {
 
 	public Text numOfPlayersText;
 	TurnManager turnManager;
-	GameState[] states;
-	int players;
+
+	int numOfPlayers;
+	List<PlayerCharacter> detectives = new List<PlayerCharacter>();
 
 	//Sets as a Singleton
 	public static MultiplayerManager instance = null;
@@ -21,29 +22,53 @@ public class MultiplayerManager : MonoBehaviour {
 		}
 		DontDestroyOnLoad(gameObject); //Set this to not be destroyed when reloading scene
 	}
-		
+
+	//Called when the player submits the number of players.
 	public void Setup() {
-		players = int.Parse (numOfPlayersText.text.Trim ());
+		numOfPlayers = int.Parse (numOfPlayersText.text.Trim ());
+		Debug.Log ("Num of players:" +numOfPlayers);
 		SceneManager.LoadScene("Character Selection");
 
+		/*
 		CharacterSelector characterSelector = FindObjectOfType<CharacterSelector> ();
-		for (int i = 0; i < players; i++) {
+		for (int i = 0; i < numOfPlayers; i++) {
 			PlayerCharacter detective = characterSelector.GetDetective ();
 			states [i] = new GameState (detective);
 		}
+		*/
+		turnManager = new TurnManager (3, 20.0f,numOfPlayers);
+	}
+		
+	public TurnManager GetTurnManager(){
+		return turnManager;
 	}
 
-	public void Start() {
-
-		turnManager = new TurnManager (states, 3, 20.0f);
-
+	public int GetNumOfPlayers(){
+		return numOfPlayers;
 	}
 
 	public void Update() {
+		if (turnManager != null) {
+			turnManager.EndTurnCheck ();
+		}
 
-		turnManager.EndTurn ();
 	}
 
+	public void AddDetective(PlayerCharacter detective){
+		detectives.Add (detective);
+	}
 
+	public List<PlayerCharacter> GetDetectives(){
+		return detectives;
+	}
+
+	public void SetStates(){
+		GameState[] states = new GameState[numOfPlayers];
+		for (int i = 0; i < numOfPlayers -1 ; i++) {
+			states [i] = new GameState (detectives[i]);
+		}
+
+		turnManager.SetStates (states);
+	}
 
 }

@@ -306,7 +306,7 @@ Prefab:
     - target: {fileID: 224005833937266214, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62
       objectReference: {fileID: 0}
     - target: {fileID: 224771950393718162, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
@@ -316,7 +316,7 @@ Prefab:
     - target: {fileID: 224771950393718162, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -956
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56e6135bb19c26d4ab4599c0dcf29df6, type: 2}
@@ -1210,6 +1210,7 @@ GameObject:
   - component: {fileID: 1339755208}
   - component: {fileID: 1339755210}
   - component: {fileID: 1339755211}
+  - component: {fileID: 1339755212}
   m_Layer: 0
   m_Name: Local Scripts
   m_TagString: Untagged
@@ -1276,6 +1277,17 @@ MonoBehaviour:
   scoreText: {fileID: 295983964}
   characterScaling: 0.8
   itemScaling: 0.4
+--- !u!114 &1339755212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1339755207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724fe4ed672679d43b0cbf5936bdd9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1422320630
 GameObject:
   m_ObjectHideFlags: 0

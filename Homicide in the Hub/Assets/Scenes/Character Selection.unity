@@ -415,7 +415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.9
-  m_Text: Select your Detective
+  m_Text: Player
 --- !u!222 &289851584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1539,6 +1539,7 @@ MonoBehaviour:
   GUIImage: {fileID: 1267716655}
   GUIQuestioningStyle: {fileID: 759005524}
   GUIDescription: {fileID: 1416811052}
+  playerNumberReference: {fileID: 289851583}
 --- !u!4 &1430352100
 Transform:
   m_ObjectHideFlags: 0

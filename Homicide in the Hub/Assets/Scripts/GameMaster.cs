@@ -167,12 +167,6 @@ public class GameMaster : MonoBehaviour {
 	//Saving and Loading
 	GameState[] gameStates;
 
-	private int numOfPlayers;
-
-
-	public void SetNumberOfPlayers(int numOfPlayers){
-		this.numOfPlayers = numOfPlayers;
-	}
 	//private TurnManager turnManager = new TurnManager(gameStates,3,30.0f);
 
 
