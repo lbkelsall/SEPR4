@@ -104,16 +104,16 @@ public class CharacterSelector : MonoBehaviour {
 			MultiplayerManager multiplayerManager = GameObject.Find ("Multiplayer Manager Object").GetComponent<MultiplayerManager> ();
 			TurnManager turnManager = multiplayerManager.GetTurnManager ();
 
+			multiplayerManager.AddDetective (detectives [detectiveCounter]);
 			//If all detectives selected.
-			if (turnManager.GetPlayerTurn () >= multiplayerManager.GetNumOfPlayers ()) {
-				GameMaster.instance.CreateNewGame (multiplayerManager.GetDetectives ()[0]);
+			if (turnManager.GetPlayerTurn () == multiplayerManager.GetNumOfPlayers ()) {
 				multiplayerManager.SetStates ();
 				turnManager.SetPlayerTurn (1);
+				GameMaster.instance.CreateNewGame (multiplayerManager.GetDetectives ()[0]);
 				SceneManager.LoadScene ("Atrium");
 			
 			//If not all detectives entered
 			} else {
-				multiplayerManager.AddDetective (detectives [detectiveCounter]);
 				turnManager.SetPlayerTurn (turnManager.GetPlayerTurn () + 1);
 				SceneManager.LoadScene ("Character Selection");
 			}

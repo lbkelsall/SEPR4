@@ -8,7 +8,9 @@ public class TurnTesting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start(){
-		turnManager = MultiplayerManager.instance.GetTurnManager ();
+		if (MultiplayerManager.instance != null) {
+			turnManager = MultiplayerManager.instance.GetTurnManager ();
+		}
 	}
 
 	void Update(){

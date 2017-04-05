@@ -18,23 +18,24 @@ public class TurnManager{
 	private GameState[] states;
 
 	public TurnManager(int maxActions, float maxTime, int numOfPlayers){
-		this.states = states; 
 		this.actionsCap = maxActions;
 		this.timeCap = maxTime;
 		this.numOfPlayers = numOfPlayers;
 	}
 
 	private void CyclePlayers(){
-		states [playerTurn].Save ();
-
-		if (playerTurn == numOfPlayers) {
-			playerTurn = 0;
-		} else {
-			playerTurn++;
-		}
-		states [playerTurn].Load ();
+		states [playerTurn-1].Save ();
+		playerTurn += 1;
+		if (playerTurn > numOfPlayers) {
+			playerTurn = 1;
+		} 
+		//Debug.Log ("Player Turn: "+playerTurn);
+		//Debug.Log ("No of players: "+ numOfPlayers);
 		timer = 0.0f;
 		actionCounter = 0;
+		//Debug.Log ("Length: "+states[1].ToString());
+		states [playerTurn-1].Load ();
+
 	}
 
 	public void IncrementActionCounter(){
@@ -42,9 +43,8 @@ public class TurnManager{
 	}
 
 	public void EndTurnCheck(){
-		if ((actionCounter >= actionsCap) || (timer >= timeCap)) {
+		if ((actionCounter > actionsCap) || (timer >= timeCap)) {
 			CyclePlayers ();
-			Debug.Log ("Cycle Players");
 		}
 	}
 
@@ -56,7 +56,8 @@ public class TurnManager{
 		this.playerTurn = turn;
 	}
 
-	public void SetStates(GameState[] states){
+	public void SetStates(GameState[] states, int numOfPlayers){
+		this.states = new GameState[numOfPlayers];
 		this.states = states;
 	}
 }

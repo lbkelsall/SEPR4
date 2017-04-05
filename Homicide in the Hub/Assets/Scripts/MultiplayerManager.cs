@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class MultiplayerManager : MonoBehaviour {
 
 	public Text numOfPlayersText;
-	TurnManager turnManager;
+	private TurnManager turnManager;
 
-	int numOfPlayers;
+	private int numOfPlayers;
 	List<PlayerCharacter> detectives = new List<PlayerCharacter>();
 
 	//Sets as a Singleton
@@ -27,6 +27,8 @@ public class MultiplayerManager : MonoBehaviour {
 	public void Setup() {
 		numOfPlayers = int.Parse (numOfPlayersText.text.Trim ());
 		Debug.Log ("Num of players:" +numOfPlayers);
+		turnManager = new TurnManager (3, 20.0f,numOfPlayers);
+
 		SceneManager.LoadScene("Character Selection");
 
 		/*
@@ -36,7 +38,7 @@ public class MultiplayerManager : MonoBehaviour {
 			states [i] = new GameState (detective);
 		}
 		*/
-		turnManager = new TurnManager (3, 20.0f,numOfPlayers);
+
 	}
 		
 	public TurnManager GetTurnManager(){
@@ -64,11 +66,12 @@ public class MultiplayerManager : MonoBehaviour {
 
 	public void SetStates(){
 		GameState[] states = new GameState[numOfPlayers];
-		for (int i = 0; i < numOfPlayers -1 ; i++) {
+		for (int i = 0; i < states.Length; i++) {
+			Debug.Log (i);
 			states [i] = new GameState (detectives[i]);
 		}
 
-		turnManager.SetStates (states);
+		turnManager.SetStates (states, numOfPlayers);
 	}
 
 }

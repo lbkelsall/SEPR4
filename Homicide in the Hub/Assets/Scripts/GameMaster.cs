@@ -460,6 +460,14 @@ public class GameMaster : MonoBehaviour {
 		return intScore;
 	}
 
+	public void SetScore(float score){
+		gameScore = score; 
+	}
+
+
+	public void SetPlayerCharacter(PlayerCharacter detective) {
+		this.playerCharacter = detective;
+	}
 
 	public PlayerCharacter GetPlayerCharacter() {
 		return playerCharacter;
