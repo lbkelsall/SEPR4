@@ -50,6 +50,7 @@ public class NotebookManager : MonoBehaviour {
 	}
 
 	public void UpdateNotebook(){
+		ClearItemInfomation ();
 		//If the Notebook is used in the Interrogation room, show the toggle buttons used
 		if (SceneManager.GetActiveScene ().name == "Interrogation Room") {
 			ResetSelectedClues ();
@@ -177,5 +178,11 @@ public class NotebookManager : MonoBehaviour {
 	public void ResetSelectedClues(){			
 		selectedCluesItem.Clear ();
 		selectedCluesVerbal.Clear ();
+	}
+
+	private void ClearItemInfomation(){
+		clueDescriptionText.text = "";
+		clueImage.sprite = questionMark;
+		clueNameText.text = "";
 	}
 }

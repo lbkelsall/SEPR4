@@ -13,7 +13,6 @@ public class Riddler : MonoBehaviour {
 	public GameObject centreSpawnPoint;
 	public float spawnPointPadding;
 	public GameObject dropArea;
-	private bool riddleSolved = false;
 
 	public GameObject secretEntrance; 
 	public GameObject emptyFridge;
@@ -79,12 +78,15 @@ public class Riddler : MonoBehaviour {
 			
 			//Incorrect Answer
 			} else {
-				riddleSolved = false;
+				GameMaster.instance.SetRiddleStatus (false);
+				ShowEmptyFridge ();
 				Debug.Log ("InCorrect Answer!");
 			}
 
 		//Submit button pressed with no letters added to the drop area
 		} else {
+			GameMaster.instance.SetRiddleStatus (false);
+			ShowEmptyFridge ();
 			Debug.Log ("No letters added!");
 		}
 	}

@@ -30,7 +30,11 @@ public class LetterScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		//Reordering the element
 		Transform[] siblings = parent.GetComponentsInChildren<Transform> (true);
 		for (int i = 0; i < (siblings.Length - 1); i++) {
-			if ((eventData.position.x > siblings [i].position.x) && (eventData.position.x < siblings [i + 1].position.x)) {
+			if (eventData.position.x < siblings [0].position.x) {
+				gameObject.transform.SetSiblingIndex (0);
+			} else if (eventData.position.x > siblings [siblings.Length-1].position.x) {
+				gameObject.transform.SetSiblingIndex (siblings.Length);
+			} else if ((eventData.position.x > siblings [i].position.x) && (eventData.position.x < siblings [i + 1].position.x)) {
 				gameObject.transform.SetSiblingIndex (i);
 			} 
 		}

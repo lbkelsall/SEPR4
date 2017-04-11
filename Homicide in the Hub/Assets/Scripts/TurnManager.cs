@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class TurnManager{
 		
 	private int playerTurn = 1;
 
 	private int numOfPlayers = 1;
+
+	private bool playerSwitched = false;
 
 	private int actionsCap;
 
@@ -29,11 +33,8 @@ public class TurnManager{
 		if (playerTurn > numOfPlayers) {
 			playerTurn = 1;
 		} 
-		//Debug.Log ("Player Turn: "+playerTurn);
-		//Debug.Log ("No of players: "+ numOfPlayers);
 		timer = 0.0f;
 		actionCounter = 0;
-		//Debug.Log ("Length: "+states[1].ToString());
 		states [playerTurn-1].Load ();
 
 	}
@@ -43,9 +44,12 @@ public class TurnManager{
 	}
 
 	public void EndTurnCheck(){
-		if ((actionCounter > actionsCap) || (timer >= timeCap)) {
+		playerSwitched = false;
+		if ((actionCounter >= actionsCap) || (timer >= timeCap)) {
+			playerSwitched = true;
 			CyclePlayers ();
-		}
+			 
+		} 
 	}
 
 	public int GetPlayerTurn(){
@@ -59,6 +63,10 @@ public class TurnManager{
 	public void SetStates(GameState[] states, int numOfPlayers){
 		this.states = new GameState[numOfPlayers];
 		this.states = states;
+	}
+
+	public bool HasPlayerSwitched(){
+		return playerSwitched;
 	}
 }
 

@@ -4,6 +4,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
+using System.Collections;
 
 public class QuestioningScript : MonoBehaviour {
 	//Used when the player selects the questioning option but also to set the correct sprites in the scene when entering it
@@ -18,6 +20,8 @@ public class QuestioningScript : MonoBehaviour {
 	public GameObject detectiveGameObject;
 	public GameObject characterGameObject;
 	public Text characterName; //ADDITION BY WEDUNNIT
+	public GameObject playerTurnPanel;
+	public GameObject choicesPanel;
 
 	public Text[] detectiveStylesText = new Text[3]; //Where Left-most button is 1 and rightmost is 3
 	public Text clueSpeech;			//Where the clue text is written to
@@ -39,6 +43,12 @@ public class QuestioningScript : MonoBehaviour {
 		for (int i = 0; i < 3; i++) {				//Set Text in Style buttons to Styles of chosen detective
 			detectiveStylesText [i].text = detective.GetQuestioningStyles () [i];
 		}
+
+		//If multiplayer
+		if ((GameObject.Find ("Multiplayer Manager Object") != null) && (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ())) {
+			StartCoroutine ("ShowPlayerTurn");
+		}
+
 	}
 
 	public void QuestionCharacter(int reference){
@@ -76,6 +86,20 @@ public class QuestioningScript : MonoBehaviour {
 	private string GetQuestioningChoice(int reference){
 		string choice = detective.GetQuestioningStyles () [reference];
 		return choice;
+	}
+
+	private IEnumerator ShowPlayerTurn(){
+		Time.timeScale = 0;
+		choicesPanel.SetActive (false);
+		playerTurnPanel.SetActive (true);
+		Text playerTurnText = playerTurnPanel.transform.GetChild (1).GetComponent<Text> ();
+		playerTurnText.text = "Player " + MultiplayerManager.instance.GetTurnManager ().GetPlayerTurn ();
+		Camera.main.GetComponent<Blur> ().enabled = true;
+		yield return new WaitForSecondsRealtime (3);
+		playerTurnPanel.SetActive (false);
+		Camera.main.GetComponent<Blur> ().enabled = false;
+		choicesPanel.SetActive (true);
+		Time.timeScale = 1;
 	}
 
 }

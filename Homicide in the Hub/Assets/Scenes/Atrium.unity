@@ -258,24 +258,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114033875740592824, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+    - target: {fileID: 114797801205381312, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1339755208}
-    - target: {fileID: 114867290182480308, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
-        type: 2}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1339755208}
-    - target: {fileID: 223573199483331470, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 542161682}
-    - target: {fileID: 114656549774240984, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1339755208}
     - target: {fileID: 114032760810784334, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
@@ -283,11 +268,30 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1339755210}
-    - target: {fileID: 114797801205381312, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+    - target: {fileID: 114656549774240984, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1339755208}
+    - target: {fileID: 223573199483331470, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 542161682}
+    - target: {fileID: 114867290182480308, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1339755208}
+    - target: {fileID: 114033875740592824, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1339755208}
+    - target: {fileID: 1139691553661518, guid: 56e6135bb19c26d4ab4599c0dcf29df6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224005833937266214, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
         type: 2}
       propertyPath: m_AnchorMin.y
@@ -447,6 +451,7 @@ GameObject:
   - component: {fileID: 542161681}
   - component: {fileID: 542161680}
   - component: {fileID: 542161679}
+  - component: {fileID: 542161684}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -522,6 +527,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542161684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542161678}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34382083ad114a07d000fbfb8d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iterations: 2
+  blurSpread: 0.424
+  blurShader: {fileID: 4800000, guid: 57e6deea7c2924e22a5138e2b70bb4dc, type: 3}
 --- !u!1 &610035364
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +725,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731213549 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1139691553661518, guid: 56e6135bb19c26d4ab4599c0dcf29df6,
+    type: 2}
+  m_PrefabInternal: {fileID: 295983963}
 --- !u!1 &769937665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1127,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: Control Room
+--- !u!1 &1162518536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1162518538}
+  - component: {fileID: 1162518537}
+  m_Layer: 0
+  m_Name: Turn Testing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162518537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162518536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724fe4ed672679d43b0cbf5936bdd9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1162518538
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162518536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1031, y: 622.6118, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233289628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1274,6 @@ GameObject:
   - component: {fileID: 1339755208}
   - component: {fileID: 1339755210}
   - component: {fileID: 1339755211}
-  - component: {fileID: 1339755212}
   m_Layer: 0
   m_Name: Local Scripts
   m_TagString: Untagged
@@ -1275,19 +1338,9 @@ MonoBehaviour:
   itemSpawnPoints:
   - {fileID: 706350803}
   scoreText: {fileID: 295983964}
+  playerTurnPanel: {fileID: 731213549}
   characterScaling: 0.8
   itemScaling: 0.4
---- !u!114 &1339755212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1339755207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724fe4ed672679d43b0cbf5936bdd9b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1422320630
 GameObject:
   m_ObjectHideFlags: 0

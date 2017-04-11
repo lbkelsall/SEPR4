@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MultiplayerManager : MonoBehaviour {
 
-	public Text numOfPlayersText;
+	public Dropdown numOfPlayersDropdown;
 	private TurnManager turnManager;
 
 	private int numOfPlayers;
@@ -25,8 +25,7 @@ public class MultiplayerManager : MonoBehaviour {
 
 	//Called when the player submits the number of players.
 	public void Setup() {
-		numOfPlayers = int.Parse (numOfPlayersText.text.Trim ());
-		Debug.Log ("Num of players:" +numOfPlayers);
+		numOfPlayers = numOfPlayersDropdown.value + 2;
 		turnManager = new TurnManager (3, 20.0f,numOfPlayers);
 
 		SceneManager.LoadScene("Character Selection");
@@ -67,7 +66,6 @@ public class MultiplayerManager : MonoBehaviour {
 	public void SetStates(){
 		GameState[] states = new GameState[numOfPlayers];
 		for (int i = 0; i < states.Length; i++) {
-			Debug.Log (i);
 			states [i] = new GameState (detectives[i]);
 		}
 

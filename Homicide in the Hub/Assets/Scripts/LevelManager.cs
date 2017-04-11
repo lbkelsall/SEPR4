@@ -1,10 +1,9 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
-
+﻿
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class LevelManager : MonoBehaviour {
 	//One LevelManager per level
@@ -19,6 +18,7 @@ public class LevelManager : MonoBehaviour {
 	public GameObject[] characterSpawnPoints;
 	public GameObject[] itemSpawnPoints;
 	public GameObject scoreText;
+	public GameObject playerTurnPanel;
 
 	//Used to change the scaling of characters and items per room
 	public float characterScaling = 1;
@@ -39,6 +39,11 @@ public class LevelManager : MonoBehaviour {
 		Scene scene = GameMaster.instance.GetScene(sceneName);
 		AssignCharactersToSpawnPoints (scene);
 		AssignItemsToSpawnPoints (scene);
+
+		//If multiplayer
+		if ((GameObject.Find ("Multiplayer Manager Object") != null) && (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ())) {
+			StartCoroutine ("ShowPlayerTurn");
+		}
 	}
 
 	void Update(){		//ADDITION BY WEDUNNIT
@@ -88,4 +93,19 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 	}
+
+
+	private IEnumerator ShowPlayerTurn(){
+		Time.timeScale = 0;
+		playerTurnPanel.SetActive (true);
+		Text playerTurnText = playerTurnPanel.transform.GetChild (1).GetComponent<Text> ();
+		playerTurnText.text = "Player " + MultiplayerManager.instance.GetTurnManager ().GetPlayerTurn ();
+		Camera.main.GetComponent<Blur> ().enabled = true;
+		yield return new WaitForSecondsRealtime (3);
+		playerTurnPanel.SetActive (false);
+		Camera.main.GetComponent<Blur> ().enabled = false;
+		Time.timeScale = 1;
+	}
+
+
 }

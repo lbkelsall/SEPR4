@@ -18,6 +18,7 @@ public class ButtonScript : MonoBehaviour {
 
 		if (scene == "Main Menu" && (GameObject.Find ("Multiplayer Manager Object") != null)) {
 			Destroy(GameObject.Find("Multiplayer Manager Object")); 
+			Destroy(GameObject.Find("Turn Testing"));
 		}
 
 		SceneManager.LoadScene(scene);
@@ -41,6 +42,15 @@ public class ButtonScript : MonoBehaviour {
 			SceneManager.LoadScene ("Factory");
 		} else {
 			SceneManager.LoadScene ("Fridge");
+		}
+	}
+
+	public void CharacterSelectionBack(){
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			Destroy (GameObject.Find ("Multiplayer Manager Object"));
+			SceneManager.LoadScene ("Multiplayer Setup");
+		} else {
+			LoadScene ("Main Menu");
 		}
 	}
 }
