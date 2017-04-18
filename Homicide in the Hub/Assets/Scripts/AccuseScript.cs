@@ -92,7 +92,12 @@ public class AccuseScript : MonoBehaviour {
 			verbal.SetActive (true);
 			verbalText.text = "You don't have enough evidence to accuse me of murder!";
 			GameMaster.instance.Penalise (200); //ADDITION BY WEDUNNIT
-			if(NotebookManager.instance.inventory.GetSize() < 9 ) character.BlockCharacterQuestioning(); //ADDITION BY WEDUNNIT //Only block if there are still clues to find, or the player might get stucku
+			if(NotebookManager.instance.inventory.GetSize() < 9 ) character.BlockCharacterQuestioning(); //ADDITION BY WEDUNNIT //Only block if there are still clues to find, or the player might get stuck
+			if (MultiplayerManager.instance.GetTurnManager() != null) {
+				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
+				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter();
+				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter();
+			}
 		}
 	}
 

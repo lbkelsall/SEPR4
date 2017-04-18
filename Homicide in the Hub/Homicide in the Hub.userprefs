@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuestioningScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Riddler.cs">
     <Files>
       <File FileName="Assets/Scripts/MultiplayerManager.cs" Line="55" Column="3" />
       <File FileName="Assets/Scripts/TurnManager.cs" Line="10" Column="31" />
@@ -8,10 +8,7 @@
       <File FileName="Assets/Scripts/TurnTesting.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/InterrogationScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GameMaster.cs" Line="522" Column="25" />
-      <File FileName="Assets/Scripts/Riddler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ItemScript.cs" Line="25" Column="4" />
-      <File FileName="Assets/Scripts/LevelManager.cs" Line="50" Column="1" />
-      <File FileName="Assets/Scripts/QuestioningScript.cs" Line="70" Column="36" />
+      <File FileName="Assets/Scripts/Riddler.cs" Line="78" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
