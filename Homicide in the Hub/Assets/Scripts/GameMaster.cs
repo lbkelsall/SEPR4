@@ -299,6 +299,7 @@ public class GameMaster : MonoBehaviour {
 		Scene roof = new Scene("Roof");
 		Scene atrium = new Scene("Atrium");
 		Scene undergroundLab = new Scene("Underground Lab");
+		Scene factory = new Scene ("Factory");
 
 		//Defining Items
 		MurderWeapon cutlass = new MurderWeapon(cutlassPrefab, "Cutlass", "A worn and well used cutlass", cutlassSprite, "SD");
@@ -368,7 +369,7 @@ public class GameMaster : MonoBehaviour {
 			scientist,
 			reginald
 		};
-		scenes = new Scene[8] { atrium, lectureTheatre, lakehouse, controlRoom, kitchen, islandOfInteraction, roof, undergroundLab };
+		scenes = new Scene[9] { atrium, lectureTheatre, lakehouse, controlRoom, kitchen, islandOfInteraction, roof, undergroundLab, factory };
 	}
 
 	void AssignNPCsToScenes(NonPlayerCharacter[] characters, Scene[] scenes) {

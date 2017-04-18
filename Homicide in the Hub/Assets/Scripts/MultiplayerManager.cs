@@ -50,6 +50,7 @@ public class MultiplayerManager : MonoBehaviour {
 
 	public void Update() {
 		if (turnManager != null) {
+			turnManager.IncrementTimer ();
 			turnManager.EndTurnCheck ();
 		}
 

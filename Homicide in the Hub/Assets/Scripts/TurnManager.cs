@@ -15,7 +15,7 @@ public class TurnManager{
 
 	private int actionCounter;
 
-	private float timer;
+	public float timer;
 
 	private float timeCap;
 
@@ -45,6 +45,7 @@ public class TurnManager{
 
 	public void EndTurnCheck(){
 		playerSwitched = false;
+		Debug.Log (timer);
 		if ((actionCounter >= actionsCap) || (timer >= timeCap)) {
 			playerSwitched = true;
 			CyclePlayers ();
@@ -68,5 +69,12 @@ public class TurnManager{
 	public bool HasPlayerSwitched(){
 		return playerSwitched;
 	}
+
+	public void IncrementTimer() {
+		timer += Time.deltaTime;
+	}
+
 }
+
+
 

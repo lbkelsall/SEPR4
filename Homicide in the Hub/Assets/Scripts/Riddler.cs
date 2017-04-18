@@ -75,7 +75,7 @@ public class Riddler : MonoBehaviour {
 				GameMaster.instance.SetRiddleStatus (true);
 				ShowHiddenEntrance ();
 				Debug.Log ("Correct Answer!");
-				if (MultiplayerManager.instance.GetTurnManager() != null) {
+				if (GameObject.Find ("Multiplayer Manager Object") != null)  {
 					MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 				}
 			
