@@ -1,22 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Riddler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuestioningScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\MultiplayerManager.cs" Line="55" Column="3" />
-      <File FileName="Assets\Scripts\TurnManager.cs" Line="48" Column="33" />
-      <File FileName="Assets\Scripts\GameState.cs" Line="47" Column="2" />
-      <File FileName="Assets\Scripts\TurnTesting.cs" Line="21" Column="2" />
-      <File FileName="Assets\Scripts\CharacterSelector.cs" Line="98" Column="62" />
-      <File FileName="Assets\Scripts\LevelManager.cs" Line="109" Column="2" />
-      <File FileName="Assets\Scripts\TraverseRooms.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ButtonScript.cs" Line="53" Column="28" />
-      <File FileName="Assets\Classes\Inventory.cs" Line="35" Column="3" />
-      <File FileName="Assets\Scripts\GameMaster.cs" Line="522" Column="12" />
-      <File FileName="Assets\Scripts\QuestioningScript.cs" Line="103" Column="3" />
-      <File FileName="Assets\Scripts\InterrogationScript.cs" Line="32" Column="28" />
-      <File FileName="Assets\Scripts\NotebookManager.cs" Line="64" Column="4" />
-      <File FileName="Assets\Testing\Editor\CharacterTester.cs" Line="34" Column="3" />
-      <File FileName="Assets\Scripts\Riddler.cs" Line="88" Column="48" />
+      <File FileName="Assets/Scripts/MultiplayerManager.cs" Line="55" Column="3" />
+      <File FileName="Assets/Scripts/TurnManager.cs" Line="10" Column="31" />
+      <File FileName="Assets/Scripts/GameState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TurnTesting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InterrogationScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameMaster.cs" Line="522" Column="25" />
+      <File FileName="Assets/Scripts/Riddler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ItemScript.cs" Line="25" Column="4" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="50" Column="1" />
+      <File FileName="Assets/Scripts/QuestioningScript.cs" Line="70" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

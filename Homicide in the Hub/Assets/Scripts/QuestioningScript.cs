@@ -67,6 +67,9 @@ public class QuestioningScript : MonoBehaviour {
 					NotebookManager.instance.logbook.AddVerbalClueToLogbook (clue);
 				    GameMaster.instance.UnblockAllCharacters ();	//ADDITION BY WEDUNNIT
 				    NotebookManager.instance.UpdateNotebook ();
+					if (MultiplayerManager.instance.GetTurnManager() != null) {
+						MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
+					}
 				} else {
 					response = "Clue Already Obtained";			//Otherwise state the clue is already in the logbook
 				}

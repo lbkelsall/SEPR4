@@ -20,8 +20,10 @@ public class ItemScript : MonoBehaviour {
 	    GameMaster.instance.UnblockAllCharacters ();	//ADDITION BY WEDUNNIT
 	    NotebookManager.instance.UpdateNotebook();
 		GameObject.Find ("Local Scripts").GetComponent<InputManager1> ().ShowCluePanel (item); 	//ADDITION BY WEDUNNIT
-
-
+		if (MultiplayerManager.instance.GetTurnManager() != null) {
+			MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
+		}
+			
 		//Plays mysterious sfx by adding audio source to the local scripts game object (an instance is present in every scene), and playing the sound
 		GameObject.Find ("Local Scripts").AddComponent<AudioSource> ();							//ADDITION BY WEDUNNIT
 		GameObject.Find ("Local Scripts").GetComponent<AudioSource> ().clip = Resources.Load<AudioClip> ("Sounds/mysterious-sfx"); //ADDITION BY WEDUNNIT
