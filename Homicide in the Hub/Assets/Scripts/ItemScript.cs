@@ -20,7 +20,7 @@ public class ItemScript : MonoBehaviour {
 	    GameMaster.instance.UnblockAllCharacters ();	//ADDITION BY WEDUNNIT
 	    NotebookManager.instance.UpdateNotebook();
 		GameObject.Find ("Local Scripts").GetComponent<InputManager1> ().ShowCluePanel (item); 	//ADDITION BY WEDUNNIT
-		if (MultiplayerManager.instance.GetTurnManager() != null) {
+		if (GameObject.Find ("Multiplayer Manager Object") != null)  {
 			MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 		}
 			
