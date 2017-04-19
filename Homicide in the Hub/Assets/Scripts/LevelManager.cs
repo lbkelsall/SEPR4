@@ -19,6 +19,9 @@ public class LevelManager : MonoBehaviour {
 	public GameObject[] itemSpawnPoints;
 	public GameObject scoreText;
 	public GameObject playerTurnPanel;
+	public Text multiplayerTimerText;
+	public GameObject multiplayerPanel;
+	private bool multiplayerGame = false;
 
 	//Used to change the scaling of characters and items per room
 	public float characterScaling = 1;
@@ -26,6 +29,8 @@ public class LevelManager : MonoBehaviour {
 
 	private bool isGreen; //ADDITION BY WEDUNNIT
 	private float greenTime; //ADDITION BY WEDUNNIT
+
+
 
 
 	void Start() {
@@ -41,12 +46,23 @@ public class LevelManager : MonoBehaviour {
 		AssignItemsToSpawnPoints (scene);
 
 		//If multiplayer
-		if ((GameObject.Find ("Multiplayer Manager Object") != null) && (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ())) {
-			StartCoroutine ("ShowPlayerTurn");
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			if (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ()) {
+				StartCoroutine ("ShowPlayerTurn");
+			}
+			multiplayerPanel.SetActive (true);
+			multiplayerGame = true;
+			MultiplayerManager.instance.GameHasStarted ();
+
+		} else {
+			multiplayerPanel.SetActive (false);
+			multiplayerGame = false;
 		}
 	}
 
 	void Update(){		//ADDITION BY WEDUNNIT
+
+		//Update time
 		scoreText.GetComponent<Text>().text = GameMaster.instance.GetScore().ToString();
 		if (isGreen) {
 			greenTime -= Time.deltaTime;
@@ -54,6 +70,11 @@ public class LevelManager : MonoBehaviour {
 				isGreen = false;
 				scoreText.GetComponent<Text> ().color = new Color (1F, 1F, 1F);
 			}
+		}
+
+		//Update multiplayer timer
+		if (multiplayerGame){
+			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
 		}
 	}
 

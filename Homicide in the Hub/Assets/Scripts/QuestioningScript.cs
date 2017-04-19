@@ -23,6 +23,10 @@ public class QuestioningScript : MonoBehaviour {
 	public GameObject playerTurnPanel;
 	public GameObject choicesPanel;
 
+	public Text multiplayerTimerText;
+	public GameObject multiplayerPanel;
+	private bool multiplayerGame = false;
+
 	public Text[] detectiveStylesText = new Text[3]; //Where Left-most button is 1 and rightmost is 3
 	public Text clueSpeech;			//Where the clue text is written to
 
@@ -45,10 +49,26 @@ public class QuestioningScript : MonoBehaviour {
 		}
 
 		//If multiplayer
-		if ((GameObject.Find ("Multiplayer Manager Object") != null) && (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ())) {
-			StartCoroutine ("ShowPlayerTurn");
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			if (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ()) {
+				StartCoroutine ("ShowPlayerTurn");
+			}
+			multiplayerPanel.SetActive (true);
+			multiplayerGame = true;
+			MultiplayerManager.instance.GameHasStarted ();
+
+		} else {
+			multiplayerPanel.SetActive (false);
+			multiplayerGame = false;
 		}
 
+	}
+
+	public void Update(){
+		//Update multiplayer timer
+		if (multiplayerGame){
+			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
+		}
 	}
 
 	public void QuestionCharacter(int reference){

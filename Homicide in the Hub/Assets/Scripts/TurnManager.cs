@@ -23,6 +23,7 @@ public class TurnManager{
 
 	public TurnManager(int maxActions, float maxTime, int numOfPlayers){
 		this.actionsCap = maxActions;
+		this.timer = maxTime;
 		this.timeCap = maxTime;
 		this.numOfPlayers = numOfPlayers;
 	}
@@ -33,7 +34,7 @@ public class TurnManager{
 		if (playerTurn > numOfPlayers) {
 			playerTurn = 1;
 		} 
-		timer = 0.0f;
+		timer = timeCap;
 		actionCounter = 0;
 		states [playerTurn-1].Load ();
 
@@ -45,8 +46,7 @@ public class TurnManager{
 
 	public void EndTurnCheck(){
 		playerSwitched = false;
-		Debug.Log (timer);
-		if ((actionCounter >= actionsCap) || (timer >= timeCap)) {
+		if ((actionCounter >= actionsCap) || (timer <= 0f)) {
 			playerSwitched = true;
 			CyclePlayers ();
 			 
@@ -70,9 +70,15 @@ public class TurnManager{
 		return playerSwitched;
 	}
 
-	public void IncrementTimer() {
-		timer += Time.deltaTime;
+	public void DecrementTimer() {
+		timer -= Time.deltaTime;
 	}
+
+	public int GetTimer(){
+		return (int) timer;
+	}
+
+	
 
 }
 

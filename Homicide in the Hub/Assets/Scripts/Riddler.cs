@@ -19,11 +19,30 @@ public class Riddler : MonoBehaviour {
 	public GameObject riddleGUI;
 	public GameObject backButton;
 
+	public Text multiplayerTimerText;
+	public GameObject multiplayerPanel;
+	private bool multiplayerGame = false;
+
 	void Start () {
 		riddle = GameMaster.instance.GetRiddle () [0];
 		correctAnswer = GameMaster.instance.GetRiddle () [1];
 		questionText.text = riddle;
 		CreateAnswerMagnets (correctAnswer);
+
+
+		//If multiplayer
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			if (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ()) {
+				StartCoroutine ("ShowPlayerTurn");
+			}
+			multiplayerPanel.SetActive (true);
+			multiplayerGame = true;
+			MultiplayerManager.instance.GameHasStarted ();
+
+		} else {
+			multiplayerPanel.SetActive (false);
+			multiplayerGame = false;
+		}
 	}
 
 	//Instantiates the 'magnets', 
@@ -104,5 +123,12 @@ public class Riddler : MonoBehaviour {
 		emptyFridge.SetActive (true);
 		riddleGUI.SetActive (false);
 		backButton.SetActive (true);
+	}
+
+	public void Update(){
+		//Update multiplayer timer
+		if (multiplayerGame){
+			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
+		}
 	}
 }

@@ -8,6 +8,7 @@ public class MultiplayerManager : MonoBehaviour {
 
 	public Dropdown numOfPlayersDropdown;
 	private TurnManager turnManager;
+	private bool gameStarted;
 
 	private int numOfPlayers;
 	List<PlayerCharacter> detectives = new List<PlayerCharacter>();
@@ -26,7 +27,7 @@ public class MultiplayerManager : MonoBehaviour {
 	//Called when the player submits the number of players.
 	public void Setup() {
 		numOfPlayers = numOfPlayersDropdown.value + 2;
-		turnManager = new TurnManager (3, 20.0f,numOfPlayers);
+		turnManager = new TurnManager (3, 21.0f,numOfPlayers);
 
 		SceneManager.LoadScene("Character Selection");
 
@@ -50,8 +51,11 @@ public class MultiplayerManager : MonoBehaviour {
 
 	public void Update() {
 		if (turnManager != null) {
-			turnManager.IncrementTimer ();
-			turnManager.EndTurnCheck ();
+			if (gameStarted) {
+				turnManager.DecrementTimer ();
+				turnManager.EndTurnCheck ();
+			}
+
 		}
 
 	}
@@ -73,4 +77,7 @@ public class MultiplayerManager : MonoBehaviour {
 		turnManager.SetStates (states, numOfPlayers);
 	}
 
+	public void GameHasStarted(){
+		gameStarted = true;
+	}
 }
