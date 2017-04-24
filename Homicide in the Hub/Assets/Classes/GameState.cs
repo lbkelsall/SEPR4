@@ -9,7 +9,7 @@ public class GameState {
 	private string currentScene = "Atrium";
 	private List<Item> items = new List<Item>();
 	private List<VerbalClue> verbalClues = new List<VerbalClue>(); 
-	private Dictionary<NonPlayerCharacter, string> NPCs = new Dictionary<NonPlayerCharacter, string> ();
+	private Dictionary<NonPlayerCharacter, bool> NPCLockStatus = new Dictionary<NonPlayerCharacter, bool> ();
 	private int failedAccusations = 0;
 	private float score = 1000f;
 	private float time;
@@ -18,10 +18,20 @@ public class GameState {
 	private bool riddleStatus;
 
 	public GameState (PlayerCharacter detective) {
-		this.detective = detective; 
+		this.detective = detective;
 	}
 
 	public void Save() {
+
+		//character locked states
+		foreach (NonPlayerCharacter character in GameMaster.instance.GetCharacters() ) {
+			if (NPCLockStatus.ContainsKey (character) == false) {
+				NPCLockStatus.Add (character, character.CanBeQuestionned ());
+			} else {
+				NPCLockStatus [character] = character.CanBeQuestionned ();
+			}
+		}
+
 		items = NotebookManager.instance.inventory.GetInventory ();
 		verbalClues = NotebookManager.instance.logbook.GetLogbook ();
 		currentScene = SceneManager.GetActiveScene ().name;
@@ -33,6 +43,14 @@ public class GameState {
 	}
 
 	public void Load() {
+
+		foreach (KeyValuePair <NonPlayerCharacter, bool> status in NPCLockStatus ) {
+			if (status.Value == true) {
+				status.Key.AllowCharacterQuestioning ();
+			} else {
+				status.Key.BlockCharacterQuestioning ();
+			}
+		}
 		
 		NotebookManager.instance.inventory.SetInventory (items);
 		NotebookManager.instance.logbook.SetLogbook (verbalClues);

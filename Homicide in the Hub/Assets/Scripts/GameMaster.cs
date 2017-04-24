@@ -530,4 +530,8 @@ public class GameMaster : MonoBehaviour {
 	public string[] GetRiddle(){
 		return riddle;
 	}
+		
+	public NonPlayerCharacter[] GetCharacters() {
+		return characters;
+	}
 }
