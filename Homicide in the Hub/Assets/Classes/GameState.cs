@@ -24,7 +24,7 @@ public class GameState {
 	public void Save() {
 
 		//character locked states
-		foreach (NonPlayerCharacter character in GameMaster.instance.GetCharacters() ) {
+		foreach (NonPlayerCharacter character in GameMaster.instance.GetCharacters()) {
 			if (NPCLockStatus.ContainsKey (character) == false) {
 				NPCLockStatus.Add (character, character.CanBeQuestionned ());
 			} else {
@@ -39,7 +39,6 @@ public class GameState {
 		sceneToReturnTo = InterrogationScript.instance.GetReturnScene ();
 		interrogationCharacter = InterrogationScript.instance.GetInterrogationCharacter ();
 		riddleStatus = GameMaster.instance.GetRiddleStatus ();
-		//Need to add failed accusations and if riddle solved
 	}
 
 	public void Load() {

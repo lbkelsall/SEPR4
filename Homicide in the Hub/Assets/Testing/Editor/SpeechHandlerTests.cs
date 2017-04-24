@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Assets.Classes;
 using NUnit.Framework;
+using UnityEngine;
 
 namespace Assets.Testing.Editor
 {
@@ -12,7 +13,7 @@ namespace Assets.Testing.Editor
         public void loadData()
         {
             List<string> speechLines = new List<string>();
-            JSONObject obj = new JSONObject(File.ReadAllText("testSpeech.JSON"));
+			JSONObject obj = new JSONObject(File.ReadAllText(Directory.GetCurrentDirectory ()+"/Assets/JSON/testSpeech.JSON"));
             List<string> responses = new List<string>();
             responses = SpeechHandler.AccessData(obj, "TestCharacter").ToList();
             speechLines.Add("These are test lines");

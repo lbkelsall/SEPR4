@@ -26,6 +26,7 @@ public class CharacterTester
         //Arrange
         characterName = "My Character";
         characterNickname = "My Nickname";
+		characterSprite = new Sprite ();
         character = new CharacterClassForTesting (characterName,characterSprite, characterNickname);
     }
 

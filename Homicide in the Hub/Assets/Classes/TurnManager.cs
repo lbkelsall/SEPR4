@@ -28,6 +28,7 @@ public class TurnManager{
 		this.numOfPlayers = numOfPlayers;
 	}
 
+
 	private void CyclePlayers(){
 		states [playerTurn-1].Save ();
 		playerTurn += 1;
@@ -48,8 +49,7 @@ public class TurnManager{
 		playerSwitched = false;
 		if ((actionCounter >= actionsCap) || (timer <= 0f)) {
 			playerSwitched = true;
-			CyclePlayers ();
-			 
+			CyclePlayers (); //Comment this out when unit testing this method
 		} 
 	}
 
@@ -76,6 +76,16 @@ public class TurnManager{
 
 	public int GetTimer(){
 		return (int) timer;
+	}
+
+
+	//Used for testing
+	public int GetActionCounter(){
+		return actionCounter;
+	}
+
+	public GameState[] GetStates(){
+		return states;
 	}
 
 	

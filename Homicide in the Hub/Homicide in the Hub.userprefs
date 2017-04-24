@@ -1,16 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Riddler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Classes\GameState.cs">
     <Files>
-      <File FileName="Assets\Scripts\ItemScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Riddler.cs" Line="5" Column="40" />
-      <File FileName="Assets\Scripts\CharacterSelector.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LevelManager.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\MultiplayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TurnManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\QuestioningScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Testing\Editor\CharacterTester.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets\Classes\TurnManager.cs" Line="33" Column="3" />
+      <File FileName="Assets\Testing\Editor\TurnManagerTesting.cs" Line="86" Column="3" />
+      <File FileName="Assets\Classes\GameState.cs" Line="35" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
