@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Classes\Character.cs" />
      <Compile Include="Assets\Classes\Clue.cs" />
+     <Compile Include="Assets\Classes\GameState.cs" />
      <Compile Include="Assets\Classes\Inventory.cs" />
      <Compile Include="Assets\Classes\Item.cs" />
      <Compile Include="Assets\Classes\Logbook.cs" />
@@ -71,7 +72,6 @@
      <Compile Include="Assets\Scripts\FridgeScript.cs" />
      <Compile Include="Assets\Scripts\GameMaster.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
-     <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\InputManager1.cs" />
      <Compile Include="Assets\Scripts\InterrogationScript.cs" />
      <Compile Include="Assets\Scripts\ItemScript.cs" />

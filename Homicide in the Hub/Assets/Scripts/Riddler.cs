@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class Riddler : MonoBehaviour {
 
-	private string riddle;
+	private string riddle = "Speak my name and I disappear, what am I?";
 	private string correctAnswer;
 
 	public Text questionText;
@@ -19,6 +20,7 @@ public class Riddler : MonoBehaviour {
 	public GameObject riddleGUI;
 	public GameObject backButton;
 
+	public GameObject playerTurnPanel;
 	public Text multiplayerTimerText;
 	public GameObject multiplayerPanel;
 	private bool multiplayerGame = false;
@@ -93,7 +95,7 @@ public class Riddler : MonoBehaviour {
 			if (strAnswerEntered == correctAnswer) {
 				GameMaster.instance.SetRiddleStatus (true);
 				ShowHiddenEntrance ();
-				Debug.Log ("Correct Answer!");
+
 				if (GameObject.Find ("Multiplayer Manager Object") != null)  {
 					MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 				}
@@ -102,14 +104,12 @@ public class Riddler : MonoBehaviour {
 			} else {
 				GameMaster.instance.SetRiddleStatus (false);
 				ShowEmptyFridge ();
-				Debug.Log ("InCorrect Answer!");
 			}
 
 		//Submit button pressed with no letters added to the drop area
 		} else {
 			GameMaster.instance.SetRiddleStatus (false);
 			ShowEmptyFridge ();
-			Debug.Log ("No letters added!");
 		}
 	}
 
@@ -130,5 +130,17 @@ public class Riddler : MonoBehaviour {
 		if (multiplayerGame){
 			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
 		}
+	}
+
+	private IEnumerator ShowPlayerTurn(){
+		Time.timeScale = 0;
+		playerTurnPanel.SetActive (true);
+		Text playerTurnText = playerTurnPanel.transform.GetChild (1).GetComponent<Text> ();
+		playerTurnText.text = "Player " + MultiplayerManager.instance.GetTurnManager ().GetPlayerTurn ();
+		Camera.main.GetComponent<Blur> ().enabled = true;
+		yield return new WaitForSecondsRealtime (3);
+		playerTurnPanel.SetActive (false);
+		Camera.main.GetComponent<Blur> ().enabled = false;
+		Time.timeScale = 1;
 	}
 }
