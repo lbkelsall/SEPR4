@@ -38,7 +38,7 @@ public class TurnManagerTesting {
 	}
 
 
-	[Test] //Action counter greater than max (Need to comment out CyclePlayers to work)
+	[Test] //Action counter greater than max (Need to comment out Save and loading in CyclePlayers to test)
 	public void EndTurnCheckTestTrue(){
 		turnManager.IncrementActionCounter ();
 		turnManager.IncrementActionCounter ();
@@ -49,7 +49,7 @@ public class TurnManagerTesting {
 	}
 		
 	[Test] 
-	public void GetPlayerTurnTest(){
+	public void GetPlayerTurnTest(){ //(Need to comment out Save and loading in CyclePlayers to test)
 		turnManager.IncrementActionCounter ();
 		turnManager.IncrementActionCounter ();
 		turnManager.IncrementActionCounter ();
@@ -59,7 +59,7 @@ public class TurnManagerTesting {
 	}
 
 	[Test] 
-	public void HasPlayerSwitchedTest(){
+	public void HasPlayerSwitchedTest(){ //(Need to comment out Save and loading in CyclePlayers to test)
 		Assert.IsFalse(turnManager.HasPlayerSwitched ());
 		turnManager.IncrementActionCounter ();
 		turnManager.IncrementActionCounter ();
@@ -84,4 +84,5 @@ public class TurnManagerTesting {
 		turnManager.DecrementTimer ();
 		Assert.IsTrue(turnManager.GetTimer () < oldTimer);
 	}
+		
 }

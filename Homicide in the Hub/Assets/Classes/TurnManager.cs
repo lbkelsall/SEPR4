@@ -7,7 +7,7 @@ public class TurnManager{
 		
 	private int playerTurn = 1;
 
-	private int numOfPlayers = 1;
+	private int numOfPlayers = 2;
 
 	private bool playerSwitched = false;
 
