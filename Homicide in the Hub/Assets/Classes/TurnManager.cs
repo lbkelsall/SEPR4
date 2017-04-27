@@ -38,7 +38,6 @@ public class TurnManager{
 		timer = timeCap;
 		actionCounter = 0;
 		states [playerTurn-1].Load ();
-
 	}
 
 	public void IncrementActionCounter(){

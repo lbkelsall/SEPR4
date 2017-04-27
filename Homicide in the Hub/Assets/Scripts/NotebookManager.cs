@@ -51,10 +51,12 @@ public class NotebookManager : MonoBehaviour {
 
 	public void UpdateNotebook(){
 		ClearItemInfomation ();
+
 		//If the Notebook is used in the Interrogation room, show the toggle buttons used
 		if (SceneManager.GetActiveScene ().name == "Interrogation Room") {
 			ResetSelectedClues ();
 			ResetAllToggles ();			//Resets toggles when re-entering interrogation room
+			HideAllToggles ();
 			ShowNeededToggles ();
 			clueTitle.text = "Select "+requiredNumberOfClues+" Clues (" + (selectedCluesItem.Count + selectedCluesVerbal.Count) + "/" + requiredNumberOfClues + ")";
 			submitButton.interactable = false;
@@ -112,7 +114,7 @@ public class NotebookManager : MonoBehaviour {
 	public void AddToSelectedClues(int reference){
 		//Adds the selected clue passed by reference in the inspector. Called when a toggle button value changes
 
-		//If toggled on
+			//If toggled on
 		if (clueToggles [reference].isOn == true) {
 			if (reference < inventory.GetInventory ().Count) {		//If clue reference is an item
 				Item clue = inventory.GetInventory () [reference];
@@ -121,18 +123,17 @@ public class NotebookManager : MonoBehaviour {
 				VerbalClue clue = logbook.GetLogbook () [reference - inventory.GetInventory ().Count];
 				selectedCluesVerbal.Add (clue);						//Otherwise must be a VerbalClue so add to selected VerbalClues
 			}
-		//If toggled off:
+			//If toggled off:
 		} else {
-			if (reference < inventory.GetInventory ().Count) {		//If clue reference is an item
+			if ((reference < inventory.GetInventory ().Count) && (selectedCluesItem.Count != 0)) {		//If clue reference is an item and there is at least one clue to be deleted
 				Item clue = inventory.GetInventory () [reference];
 				selectedCluesItem.Remove (clue);					//Remove clue from selected item clues
-			} else {
+			} else if (selectedCluesVerbal.Count != 0) {			//Checks that there are verbal clues to be removed
 				VerbalClue clue = logbook.GetLogbook () [reference - inventory.GetInventory ().Count];
 				selectedCluesVerbal.Remove (clue);					//Otherwise must be a VerbalClue so remove from selected VerbalClues
 			}
 		}
-
-		//
+			
 		if ((selectedCluesItem.Count + selectedCluesVerbal.Count) == requiredNumberOfClues) { //If a total of (3) clues are selected make the submit button interactable
 			submitButton.interactable = true;
 		} else {
@@ -178,6 +179,8 @@ public class NotebookManager : MonoBehaviour {
 	public void ResetSelectedClues(){			
 		selectedCluesItem.Clear ();
 		selectedCluesVerbal.Clear ();
+		selectedCluesItem.TrimExcess ();
+		selectedCluesVerbal.TrimExcess ();
 	}
 
 	private void ClearItemInfomation(){

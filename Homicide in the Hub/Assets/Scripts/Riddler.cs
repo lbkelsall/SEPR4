@@ -19,6 +19,7 @@ public class Riddler : MonoBehaviour {
 	public GameObject emptyFridge;
 	public GameObject riddleGUI;
 	public GameObject backButton;
+	public GameObject secretEntranceButton;
 
 	public GameObject playerTurnPanel;
 	public Text multiplayerTimerText;
@@ -116,13 +117,15 @@ public class Riddler : MonoBehaviour {
 	private void ShowHiddenEntrance(){
 		secretEntrance.SetActive (true);
 		riddleGUI.SetActive (false);
-		backButton.SetActive (true);
+		backButton.SetActive (false);
+		secretEntranceButton.SetActive (true);
 	}
 
 	private void ShowEmptyFridge(){
 		emptyFridge.SetActive (true);
 		riddleGUI.SetActive (false);
 		backButton.SetActive (true);
+		secretEntranceButton.SetActive (false);
 	}
 
 	public void Update(){
