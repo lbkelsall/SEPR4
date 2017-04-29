@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Contains methods needed to implement multiplayer, and stores all game-specific multiplayer data. 
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityStandardAssets.ImageEffects;
@@ -28,7 +30,7 @@ public class TurnManager{
 		this.numOfPlayers = numOfPlayers;
 	}
 
-
+	// Switch to the next player (save the current GameState and Load the next one in the list 'states').
 	private void CyclePlayers(){
 		states [playerTurn-1].Save ();
 		playerTurn += 1;
@@ -44,6 +46,7 @@ public class TurnManager{
 		actionCounter++;
 	}
 
+	// Checks if current player's turn should end, and then, if so, calls the function which switches players.
 	public void EndTurnCheck(){
 		playerSwitched = false;
 		if ((actionCounter >= actionsCap) || (timer <= 0f)) {

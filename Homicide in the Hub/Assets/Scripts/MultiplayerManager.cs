@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Takes parameters specified by the player, and uses them to create all the instances of other classes needed for multiplayer.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +27,7 @@ public class MultiplayerManager : MonoBehaviour {
 	}
 
 	//Called when the player submits the number of players.
+	//Creates a new instance of TurnManager, using some parameters given by the player.
 	public void Setup() {
 		numOfPlayers = numOfPlayersDropdown.value + 2;
 		turnManager = new TurnManager (3, 21.0f,numOfPlayers);
@@ -49,6 +52,7 @@ public class MultiplayerManager : MonoBehaviour {
 		return numOfPlayers;
 	}
 
+	// Updates the multiplayer turn timer, and then checks if the current player's turn should end.
 	public void Update() {
 		if (turnManager != null) {
 			if (gameStarted) {

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Instances of this class store all the player-specific data needed for turn switching in multiplayer.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
