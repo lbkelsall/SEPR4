@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameState {
 
+	//Variables
 	private PlayerCharacter detective;
 	private string currentScene = "Atrium";
 	private List<Item> items = new List<Item>();
@@ -19,10 +20,12 @@ public class GameState {
 	private NonPlayerCharacter interrogationCharacter;
 	private bool riddleStatus;
 
+	//Constructor
 	public GameState (PlayerCharacter detective) {
 		this.detective = detective;
 	}
 
+	//Saves the data in this instance of gamestate
 	public void Save() {
 
 		//character locked states
@@ -43,8 +46,9 @@ public class GameState {
 		riddleStatus = GameMaster.instance.GetRiddleStatus ();
 	}
 
+	//Overrides the current values with the values stored in the gamestate
 	public void Load() {
-
+		//character locked states
 		foreach (KeyValuePair <NonPlayerCharacter, bool> status in NPCLockStatus ) {
 			if (status.Value == true) {
 				status.Key.AllowCharacterQuestioning ();

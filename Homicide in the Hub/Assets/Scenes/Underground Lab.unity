@@ -2456,6 +2456,7 @@ GameObject:
   - component: {fileID: 1339755208}
   - component: {fileID: 1339755210}
   - component: {fileID: 1339755211}
+  - component: {fileID: 1339755212}
   m_Layer: 0
   m_Name: Local Scripts
   m_TagString: Untagged
@@ -2520,11 +2521,22 @@ MonoBehaviour:
   itemSpawnPoints:
   - {fileID: 706350803}
   scoreText: {fileID: 1728792511}
+  characterScaling: 0.85
+  itemScaling: 0.85
+--- !u!114 &1339755212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1339755207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc08ad7bc2714c04187a3c89b9cc7410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   playerTurnPanel: {fileID: 918339690}
   multiplayerTimerText: {fileID: 1005434884}
   multiplayerPanel: {fileID: 1005434885}
-  characterScaling: 0.85
-  itemScaling: 0.85
 --- !u!1 &1422320630
 GameObject:
   m_ObjectHideFlags: 0

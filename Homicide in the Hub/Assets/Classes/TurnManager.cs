@@ -3,26 +3,20 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityStandardAssets.ImageEffects;
 
 public class TurnManager{
 		
 	private int playerTurn = 1;
-
 	private int numOfPlayers = 2;
-
 	private bool playerSwitched = false;
-
 	private int actionsCap;
-
 	private int actionCounter;
-
 	public float timer;
-
 	private float timeCap;
-
 	private GameState[] states;
 
+
+	//Constructor
 	public TurnManager(int maxActions, float maxTime, int numOfPlayers){
 		this.actionsCap = maxActions;
 		this.timer = maxTime;
@@ -89,8 +83,6 @@ public class TurnManager{
 	public GameState[] GetStates(){
 		return states;
 	}
-
-	
 
 }
 

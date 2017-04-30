@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Picks a random riddle and answer from its list, displays the riddle, seperates the answer out into individual letters and randomly distributes them in the spawn area
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,31 +23,11 @@ public class Riddler : MonoBehaviour {
 	public GameObject backButton;
 	public GameObject secretEntranceButton;
 
-	public GameObject playerTurnPanel;
-	public Text multiplayerTimerText;
-	public GameObject multiplayerPanel;
-	private bool multiplayerGame = false;
-
 	void Start () {
 		riddle = GameMaster.instance.GetRiddle () [0];
 		correctAnswer = GameMaster.instance.GetRiddle () [1];
 		questionText.text = riddle;
 		CreateAnswerMagnets (correctAnswer);
-
-
-		//If multiplayer
-		if (GameObject.Find ("Multiplayer Manager Object") != null) {
-			if (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ()) {
-				StartCoroutine ("ShowPlayerTurn");
-			}
-			multiplayerPanel.SetActive (true);
-			multiplayerGame = true;
-			MultiplayerManager.instance.GameHasStarted ();
-
-		} else {
-			multiplayerPanel.SetActive (false);
-			multiplayerGame = false;
-		}
 	}
 
 	//Instantiates the 'magnets', 
@@ -128,22 +110,4 @@ public class Riddler : MonoBehaviour {
 		secretEntranceButton.SetActive (false);
 	}
 
-	public void Update(){
-		//Update multiplayer timer
-		if (multiplayerGame){
-			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
-		}
-	}
-
-	private IEnumerator ShowPlayerTurn(){
-		Time.timeScale = 0;
-		playerTurnPanel.SetActive (true);
-		Text playerTurnText = playerTurnPanel.transform.GetChild (1).GetComponent<Text> ();
-		playerTurnText.text = "Player " + MultiplayerManager.instance.GetTurnManager ().GetPlayerTurn ();
-		Camera.main.GetComponent<Blur> ().enabled = true;
-		yield return new WaitForSecondsRealtime (3);
-		playerTurnPanel.SetActive (false);
-		Camera.main.GetComponent<Blur> ().enabled = false;
-		Time.timeScale = 1;
-	}
 }

@@ -18,10 +18,6 @@ public class LevelManager : MonoBehaviour {
 	public GameObject[] characterSpawnPoints;
 	public GameObject[] itemSpawnPoints;
 	public GameObject scoreText;
-	public GameObject playerTurnPanel;
-	public Text multiplayerTimerText;
-	public GameObject multiplayerPanel;
-	private bool multiplayerGame = false;
 
 	//Used to change the scaling of characters and items per room
 	public float characterScaling = 1;
@@ -29,9 +25,6 @@ public class LevelManager : MonoBehaviour {
 
 	private bool isGreen; //ADDITION BY WEDUNNIT
 	private float greenTime; //ADDITION BY WEDUNNIT
-
-
-
 
 	void Start() {
 		//Assign correct detective
@@ -44,20 +37,6 @@ public class LevelManager : MonoBehaviour {
 		Scene scene = GameMaster.instance.GetScene(sceneName);
 		AssignCharactersToSpawnPoints (scene);
 		AssignItemsToSpawnPoints (scene);
-
-		//If multiplayer
-		if (GameObject.Find ("Multiplayer Manager Object") != null) {
-			if (MultiplayerManager.instance.GetTurnManager ().HasPlayerSwitched ()) {
-				StartCoroutine ("ShowPlayerTurn");
-			}
-			multiplayerPanel.SetActive (true);
-			multiplayerGame = true;
-			MultiplayerManager.instance.GameHasStarted ();
-
-		} else {
-			multiplayerPanel.SetActive (false);
-			multiplayerGame = false;
-		}
 	}
 
 	void Update(){		//ADDITION BY WEDUNNIT
@@ -70,11 +49,6 @@ public class LevelManager : MonoBehaviour {
 				isGreen = false;
 				scoreText.GetComponent<Text> ().color = new Color (1F, 1F, 1F);
 			}
-		}
-
-		//Update multiplayer timer
-		if (multiplayerGame){
-			multiplayerTimerText.text = MultiplayerManager.instance.GetTurnManager ().GetTimer ().ToString();
 		}
 	}
 
@@ -114,19 +88,4 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 	}
-
-
-	private IEnumerator ShowPlayerTurn(){
-		Time.timeScale = 0;
-		playerTurnPanel.SetActive (true);
-		Text playerTurnText = playerTurnPanel.transform.GetChild (1).GetComponent<Text> ();
-		playerTurnText.text = "Player " + MultiplayerManager.instance.GetTurnManager ().GetPlayerTurn ();
-		Camera.main.GetComponent<Blur> ().enabled = true;
-		yield return new WaitForSecondsRealtime (3);
-		playerTurnPanel.SetActive (false);
-		Camera.main.GetComponent<Blur> ().enabled = false;
-		Time.timeScale = 1;
-	}
-
-
 }

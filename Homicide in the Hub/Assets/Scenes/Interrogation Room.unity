@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 668933319}
   - component: {fileID: 668933321}
   - component: {fileID: 668933322}
+  - component: {fileID: 668933323}
   m_Layer: 0
   m_Name: LocalScripts
   m_TagString: Untagged
@@ -831,6 +832,20 @@ MonoBehaviour:
   optionsMenu: {fileID: 1565404697}
   verbal: {fileID: 1468608385}
   verbalText: {fileID: 1147230180}
+--- !u!114 &668933323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668933318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc08ad7bc2714c04187a3c89b9cc7410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTurnPanel: {fileID: 2021416347}
+  multiplayerTimerText: {fileID: 1588117364}
+  multiplayerPanel: {fileID: 1588117365}
 --- !u!1 &673635016
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,10 @@ public class GameOver : MonoBehaviour {
 	/// Initialise this instance.
 	/// </summary>
 	void Start () {
+		//If multiplayer game stop countdown timer
+		if (GameObject.Find ("Multiplayer Manager Object") != null) {
+			MultiplayerManager.instance.GameActive (false);
+		}
 		GameMaster gMaster = FindObjectOfType<GameMaster> ();	// Find the current Game Master object
 		endScore = gMaster.GetScore ();							// Get the player's score
 		Text actualText = scoreText.GetComponent<Text> ();		// Get the text component of the text box...

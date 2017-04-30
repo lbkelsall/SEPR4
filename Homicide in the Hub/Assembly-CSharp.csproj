@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\MultiplayerManager.cs" />
      <Compile Include="Assets\Scripts\NotebookManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerTurnGUI.cs" />
      <Compile Include="Assets\Scripts\QuestioningScript.cs" />
      <Compile Include="Assets\Scripts\Riddler.cs" />
      <Compile Include="Assets\Scripts\TraverseRooms.cs" />
