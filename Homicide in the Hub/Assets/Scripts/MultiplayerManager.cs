@@ -1,5 +1,5 @@
 ﻿// Takes parameters specified by the player, and uses them to create all the instances of other classes needed for multiplayer.
-
+//__NEW_FOR_ASSESSMENT_4__(START)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,3 +77,4 @@ public class MultiplayerManager : MonoBehaviour {
 		detectives.Add (detective);
 	}
 }
+//__NEW_FOR_ASSESSMENT_4__(END)

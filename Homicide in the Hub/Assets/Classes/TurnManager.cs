@@ -1,5 +1,5 @@
 ﻿// Contains methods needed to implement multiplayer, and stores all game-specific multiplayer data. 
-
+//__NEW_FOR_ASSESSMENT_4__(START)
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -85,6 +85,4 @@ public class TurnManager{
 	}
 
 }
-
-
-
+//__NEW_FOR_ASSESSMENT_4__(END)

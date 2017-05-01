@@ -1,5 +1,5 @@
 ﻿// Instances of this class store all the player-specific data needed for turn switching in multiplayer.
-
+//__NEW_FOR_ASSESSMENT_4__(START)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +13,6 @@ public class GameState {
 	private List<Item> items = new List<Item>();
 	private List<VerbalClue> verbalClues = new List<VerbalClue>(); 
 	private Dictionary<NonPlayerCharacter, bool> NPCLockStatus = new Dictionary<NonPlayerCharacter, bool> ();
-	private int failedAccusations = 0;
 	private float score = 1000f;
 	private float time;
 	private string sceneToReturnTo;
@@ -68,3 +67,4 @@ public class GameState {
 	}
 
 }
+//__NEW_FOR_ASSESSMENT_4__(END)

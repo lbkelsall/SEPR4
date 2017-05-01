@@ -320,6 +320,7 @@ public class Scenario
 		return relevant_clues;
 	}
 
+	//__NEW_FOR_ASSESSMENT_4__(START)
 	private string[][] riddles = new string[][]{
 		new string [2] {"Say my name and I disappear, what am I?","Silence"},
 		new string [2] {"What is easy to get into, but hard to get out of?","Trouble"},
@@ -331,4 +332,5 @@ public class Scenario
 	public string[] SelectRiddle(){
 		return riddles[Random.Range (0,riddles.Length)];
 	}
+	//__NEW_FOR_ASSESSMENT_4__(END)
 }

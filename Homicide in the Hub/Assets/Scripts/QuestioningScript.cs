@@ -1,7 +1,4 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
@@ -61,9 +58,12 @@ public class QuestioningScript : MonoBehaviour {
 					NotebookManager.instance.logbook.AddVerbalClueToLogbook (clue);
 				    GameMaster.instance.UnblockAllCharacters ();	//ADDITION BY WEDUNNIT
 				    NotebookManager.instance.UpdateNotebook ();
-					if (MultiplayerManager.instance.GetTurnManager() != null) {
+					//__NEW_FOR_ASSESSMENT_4__(START)
+					if (GameObject.Find ("Multiplayer Manager Object") != null) {
 						MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 					}
+					//__NEW_FOR_ASSESSMENT_4__(END)
+
 				} else {
 					response = "Clue Already Obtained";			//Otherwise state the clue is already in the logbook
 				}

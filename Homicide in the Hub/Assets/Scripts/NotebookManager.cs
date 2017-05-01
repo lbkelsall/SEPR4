@@ -1,7 +1,4 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -128,7 +125,7 @@ public class NotebookManager : MonoBehaviour {
 			if ((reference < inventory.GetInventory ().Count) && (selectedCluesItem.Count != 0)) {		//If clue reference is an item and there is at least one clue to be deleted
 				Item clue = inventory.GetInventory () [reference];
 				selectedCluesItem.Remove (clue);					//Remove clue from selected item clues
-			} else if (selectedCluesVerbal.Count != 0) {			//Checks that there are verbal clues to be removed
+			} else if (selectedCluesVerbal.Count != 0) {			//Checks that there are verbal clues to be removed //__NEW_FOR_ASSESSMENT_4__
 				VerbalClue clue = logbook.GetLogbook () [reference - inventory.GetInventory ().Count];
 				selectedCluesVerbal.Remove (clue);					//Otherwise must be a VerbalClue so remove from selected VerbalClues
 			}

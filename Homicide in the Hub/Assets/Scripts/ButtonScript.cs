@@ -35,7 +35,8 @@ public class ButtonScript : MonoBehaviour {
 		string previousScene = InterrogationScript.instance.GetReturnScene ();
 		SceneManager.LoadScene (previousScene);
 	}
-		
+
+	//__NEW_FOR_ASSESSMENT_4__(START)
 	public void ClickedOnFridge(){
 		if (GameMaster.instance.GetRiddleStatus () == true) {
 			print ("Load factory, currently not set");
@@ -44,6 +45,7 @@ public class ButtonScript : MonoBehaviour {
 			SceneManager.LoadScene ("Fridge");
 		}
 	}
+	//__NEW_FOR_ASSESSMENT_4__(END)
 
 	public void CharacterSelectionBack(){
 		if (GameObject.Find ("Multiplayer Manager Object") != null) {

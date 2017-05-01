@@ -1,9 +1,4 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
-
-// will this change?
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -94,11 +89,14 @@ public class AccuseScript : MonoBehaviour {
 			verbalText.text = "You don't have enough evidence to accuse me of murder!";
 			GameMaster.instance.Penalise (200); //ADDITION BY WEDUNNIT
 			if(NotebookManager.instance.inventory.GetSize() < 9 ) character.BlockCharacterQuestioning(); //ADDITION BY WEDUNNIT //Only block if there are still clues to find, or the player might get stuck
+
+			//__NEW_FOR_ASSESSMENT_4__(START)
 			if (GameObject.Find ("Multiplayer Manager Object") != null) {
 				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter();
 				MultiplayerManager.instance.GetTurnManager().IncrementActionCounter();
 			}
+			//__NEW_FOR_ASSESSMENT_4__(END)
 		}
 	}
 

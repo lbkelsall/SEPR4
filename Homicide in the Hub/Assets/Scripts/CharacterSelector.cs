@@ -42,6 +42,7 @@ public class CharacterSelector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//__NEW_FOR_ASSESSMENT_4__(START)
 		if (GameObject.Find ("Multiplayer Manager Object") != null) {
 			MultiplayerManager multiplayerManager = GameObject.Find ("Multiplayer Manager Object").GetComponent<MultiplayerManager> ();
 			TurnManager turnManager = multiplayerManager.GetTurnManager ();
@@ -49,7 +50,7 @@ public class CharacterSelector : MonoBehaviour {
 		} else {
 			playerNumberReference.text = "Select your Detective";
 		}
-
+		//__NEW_FOR_ASSESSMENT_4__(END)
 
 
 		//Initalise detectives
@@ -94,10 +95,12 @@ public class CharacterSelector : MonoBehaviour {
 	//Called when the play button is pressed
 	public void SelectDetective(){
 
+		//__NEW_FOR_ASSESSMENT_4__(START)
 		//Singleplayer
 		if (GameObject.Find ("Multiplayer Manager Object") == null) {
 			GameMaster.instance.CreateNewGame (detectives [detectiveCounter]);
 			SceneManager.LoadScene ("Atrium");
+		
 		
 		//Multiplayer
 		} else {
@@ -118,7 +121,7 @@ public class CharacterSelector : MonoBehaviour {
 				SceneManager.LoadScene ("Character Selection");
 			}
 		}
-
+		//__NEW_FOR_ASSESSMENT_4__(END)
 	}
 
 	public PlayerCharacter GetDetective() {

@@ -1,5 +1,4 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
+﻿//Placed on each prefab of the items to alllow it to be picked up and added to the notebook
 
 using UnityEngine;
 using System.Collections;
@@ -20,10 +19,14 @@ public class ItemScript : MonoBehaviour {
 	    GameMaster.instance.UnblockAllCharacters ();	//ADDITION BY WEDUNNIT
 	    NotebookManager.instance.UpdateNotebook();
 		GameObject.Find ("Local Scripts").GetComponent<InputManager1> ().ShowCluePanel (item); 	//ADDITION BY WEDUNNIT
-		if (GameObject.Find ("Multiplayer Manager Object") != null)  {
+
+		//__NEW_FOR_ASSESSMENT_4__(START)
+		//If multiplayer game increment the action counter when clicked
+		if (GameObject.Find ("Multiplayer Manager Object") != null)  { 
 			MultiplayerManager.instance.GetTurnManager().IncrementActionCounter(); // For turn switching in multiplayer.
 		}
-			
+		//__NEW_FOR_ASSESSMENT_4__(END)	
+	
 		//Plays mysterious sfx by adding audio source to the local scripts game object (an instance is present in every scene), and playing the sound
 		GameObject.Find ("Local Scripts").AddComponent<AudioSource> ();							//ADDITION BY WEDUNNIT
 		GameObject.Find ("Local Scripts").GetComponent<AudioSource> ().clip = Resources.Load<AudioClip> ("Sounds/mysterious-sfx"); //ADDITION BY WEDUNNIT

@@ -519,6 +519,7 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
+	//__NEW_FOR_ASSESSMENT_4__(START)
 	public void SetRiddleStatus(bool status){
 		riddleSolved = status;
 	}
@@ -534,4 +535,6 @@ public class GameMaster : MonoBehaviour {
 	public NonPlayerCharacter[] GetCharacters() {
 		return characters;
 	}
+
+	//__NEW_FOR_ASSESSMENT_4__(END)
 }

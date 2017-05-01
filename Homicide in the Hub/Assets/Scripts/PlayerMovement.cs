@@ -1,7 +1,4 @@
-﻿// Here is a precise URL of the executable on the team website
-// http://wedunnit.me/webfiles/ass3/HomicideInTheHub-Win.zip
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -25,9 +22,5 @@ public class PlayerMovement : MonoBehaviour {
 			targetPosition= Camera.main.ScreenToWorldPoint(Input.mousePosition);		
 			spriteRenderer.flipX = (targetPosition.x < transform.position.x); //Flips the detective sprite based on where the player clicks. 
 		}
-		//Boundaries for movement//REMOVED BY WEDUNNIT AS WE DONT THINK CHARACTER MOVEMENT IS NECCESSARY
-		//if ((targetPosition.x > boundaries [0]) && (targetPosition.x < boundaries [1]) && (targetPosition.y > boundaries [2]) && (targetPosition.y < boundaries [3])) {//REMOVED BY WEDUNNIT AS WE DONT THINK CHARACTER MOVEMENT IS NECCESSARY
-		//	transform.position = Vector3.MoveTowards (transform.position, targetPosition, speed * Time.deltaTime);//REMOVED BY WEDUNNIT AS WE DONT THINK CHARACTER MOVEMENT IS NECCESSARY
-		//} 
 	}    
 }

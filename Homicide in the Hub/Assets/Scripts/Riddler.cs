@@ -1,5 +1,5 @@
 ﻿//Picks a random riddle and answer from its list, displays the riddle, seperates the answer out into individual letters and randomly distributes them in the spawn area
-
+//__NEW_FOR_ASSESSMENT_4__(START)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -111,3 +111,4 @@ public class Riddler : MonoBehaviour {
 	}
 
 }
+//__NEW_FOR_ASSESSMENT_4__(END)
