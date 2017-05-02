@@ -429,11 +429,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8f3519d280e8c48b5a3e04996cf3c82a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ca62b8dbb92a89944a779174f7b42bb1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.06
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2239,6 +2239,21 @@ Prefab:
     - target: {fileID: 4474784881509764, guid: 1baeb6afeb4914b4ca2ee10a1346867e, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 82550688458977130, guid: 1baeb6afeb4914b4ca2ee10a1346867e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca62b8dbb92a89944a779174f7b42bb1, type: 3}
+    - target: {fileID: 82550688458977130, guid: 1baeb6afeb4914b4ca2ee10a1346867e,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82550688458977130, guid: 1baeb6afeb4914b4ca2ee10a1346867e,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1baeb6afeb4914b4ca2ee10a1346867e, type: 2}
