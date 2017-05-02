@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿// Here is a precise URL of the executable on the team website
+// http://www-users.york.ac.uk/~phj501/Executable_4.zip
+//__NEW_FOR_ASSESSMENT_4__(START)
+using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
 
 //Note that inorder to run these tests correctly any references saving or loading a gamestate should be commented out (in cycleplayers)
+//Tests the TurnManager class
 public class TurnManagerTesting {
 
 	int numberOfPlayers = 2;
@@ -86,3 +90,4 @@ public class TurnManagerTesting {
 	}
 		
 }
+//__NEW_FOR_ASSESSMENT_4__(END)
